@@ -61,10 +61,10 @@ class MultiHeadAttention(nn.Module):
             valid_len = torch.repeat_interleave(valid_len, self.num_heads, dim = 0)
 
         # 形状为(batch_size*num_heads, query, hidden//num_heads)
-        MultiAttentionWeight = self.attention(query, key, value, valid_len)
+        self.MultiAttentionWeight = self.attention(query, key, value, valid_len)
 
         # 形状为(batch_size, query, hidden)
-        AttentionWeight = merge_qkv(MultiAttentionWeight, self.num_heads)
+        AttentionWeight = merge_qkv(self.MultiAttentionWeight, self.num_heads)
 
         # 形状为(batch_size, query, d_model)
         return self.WOutput(AttentionWeight)
