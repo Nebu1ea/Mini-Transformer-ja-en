@@ -5,10 +5,10 @@ import PositionWiseFeedForwardNet
 
 
 class TransformerEncoderBlock(nn.Module):
-    def __init__(self, d_model, num_heads, d_ff, dropout=0.1):
+    def __init__(self, d_model, num_heads, d_ff, dropout=0.1, bias=False):
         super().__init__()
 
-        self.MultiHeadAttention = MultiHeadAttention.MultiHeadAttention(query_size=d_model, key_size=d_model, value_size=d_model, hidden=d_model, d_model=d_model, num_heads=num_heads, dropout = dropout)
+        self.MultiHeadAttention = MultiHeadAttention.MultiHeadAttention(query_size=d_model, key_size=d_model, value_size=d_model, hidden=d_model, d_model=d_model, num_heads=num_heads, dropout = dropout, bias=bias)
         self.AddNorm1 = AddNorm.AddNorm(d_model=d_model, dropout=dropout)
         self.AddNorm2 = AddNorm.AddNorm(d_model=d_model, dropout=dropout)
         self.Ffn = PositionWiseFeedForwardNet.PositionWiseFFN(d_model=d_model, d_ff= d_ff, dropout=dropout)

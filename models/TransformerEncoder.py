@@ -12,7 +12,7 @@ class TransformerEncoder(nn.Module):
         self.d_model = d_model
         self.Embedding = nn.Embedding(vocab_size, d_model)
         self.PositionalEncoding = PositionalEncoding.PositionalEncoding(d_model, dropout)
-        self.Blockers = nn.ModuleList([TransformerEncoderBlock.TransformerEncoderBlock(d_model, num_heads, d_ffn, dropout) for _ in range(layers)])
+        self.Blockers = nn.ModuleList([TransformerEncoderBlock.TransformerEncoderBlock(d_model, num_heads, d_ffn, dropout, bias) for _ in range(layers)])
 
     def forward(self, x, valid_len = None):
         x = self.Embedding(x) * math.sqrt(self.d_model)
