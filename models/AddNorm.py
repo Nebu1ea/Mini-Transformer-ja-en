@@ -2,14 +2,14 @@ import torch
 from torch import nn
 
 class AddNorm(nn.Module):
-    def __init__(self, d_model, dropout = 0.1,):
+    def __init__(self, d_model, dropout = 0.1):
         super().__init__()
         self.dropout = nn.Dropout(p=dropout)
         self.norm = nn.LayerNorm(d_model)
 
     # 公式为 Y = f(x) + X
     def forward(self, x, origin_x):
-        origin_x = self.dropout(origin_x)
+        x = self.dropout(x)
         x = x + origin_x
         x = self.norm(x)
         return x
