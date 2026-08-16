@@ -1,5 +1,5 @@
 import torch
-import DotProductAttention
+from . import  DotProductAttention
 from torch import nn
 
 def split_qkv(qkv, num_heads):

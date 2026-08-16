@@ -1,7 +1,7 @@
 from torch import nn
-import AddNorm
-import MultiHeadAttention
-import PositionWiseFeedForwardNet
+from . import AddNorm
+from . import MultiHeadAttention
+from . import PositionWiseFeedForwardNet
 
 
 class TransformerEncoderBlock(nn.Module):

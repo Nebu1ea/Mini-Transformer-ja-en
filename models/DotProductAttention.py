@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-import MaskedSoftmax
+from . import MaskedSoftmax
 import math
 
 class DotProductAttention(nn.Module):

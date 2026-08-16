@@ -1,8 +1,8 @@
 import torch
 from torch import nn
-import MultiHeadAttention
-import AddNorm
-import PositionWiseFeedForwardNet
+from . import MultiHeadAttention
+from . import AddNorm
+from . import PositionWiseFeedForwardNet
 
 class TransformerDecoderBlock(nn.Module):
     def __init__(self, d_model, num_heads, d_ff, i = 0, bias = False, dropout=0.1):
@@ -40,7 +40,8 @@ class TransformerDecoderBlock(nn.Module):
             # <pad> -> I am Nebu1ea
             # <pad> -> I am Nebu1ea
             DecoderValidLen = torch.arange(1, x.shape[1] + 1, device=x.device).repeat(x.shape[0]).reshape(x.shape[0], x.shape[1])
-            DecoderValidLen = torch.minimum(DecoderValidLen, TargetValidLen)
+            TargetValidLenExpanded = TargetValidLen.unsqueeze(-1) if TargetValidLen.dim() == 1 else TargetValidLen
+            DecoderValidLen = torch.minimum(DecoderValidLen, TargetValidLenExpanded)
         else:
             DecoderValidLen = None
 
