@@ -1,0 +1,5 @@
+batch = 256
+d_model = 256
+d_ffn = 512
+heads = 8
+dropout = 0.2

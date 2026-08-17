@@ -1,0 +1,10 @@
+# transformer参数
+d_model = 384
+layers = 6
+num_heads = 8
+dropout = 0.2
+d_ff = 1536
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# 训练参数
+batch_size = 256

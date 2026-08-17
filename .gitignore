@@ -1,0 +1,18 @@
+# IDE & System
+.idea/
+.vscode/
+*.iml
+*.DS_Store
+
+# Python Cache & Env
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Logs & Outputs
+runs/
+wandb/
+logs/
+*.log
