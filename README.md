@@ -24,5 +24,5 @@ data/                  # 预处理数据与 Tokenizer 序列化文件 (.pkl)
 models/                # Transformer 核心网络模块
 result/                # 训练过程产物 (模型权重 .pth、Loss 曲线图、评估日志)
 train.ipynb            # 模型训练与推理交互脚本
-README.md              # 项目说明文档   
+README.md              # 项目说明文档    
 ```
